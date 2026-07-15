@@ -1,0 +1,626 @@
+:root {
+  --brand: #ff8a3d;
+  --brand-dark: #e8722a;
+  --brand-soft: #fff3ea;
+  --ink: #3a2e26;
+  --ink-soft: #8a7a6e;
+  --line: #f0e4da;
+  --card: #ffffff;
+  --bg: #fdf9f5;
+  --good: #2f9e6e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI",
+    "Meiryo", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 0 16px 64px;
+}
+
+.header {
+  padding: 20px 0 4px;
+  text-align: center;
+}
+
+.header .logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.header .logo span {
+  color: var(--brand);
+}
+
+.header .tagline {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+
+.hero {
+  text-align: center;
+  padding: 24px 0 8px;
+}
+
+.hero h1 {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 20px 0;
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+
+.steps .step {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #f4ece5;
+}
+
+.steps .step.active {
+  background: var(--brand);
+  color: #fff;
+  font-weight: 700;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 16px;
+  box-shadow: 0 2px 10px rgba(120, 80, 40, 0.05);
+}
+
+.upload-zone {
+  border: 2px dashed var(--brand);
+  border-radius: 16px;
+  background: var(--brand-soft);
+  padding: 36px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.upload-zone:hover {
+  background: #ffe9d8;
+}
+
+.upload-zone .icon {
+  font-size: 42px;
+}
+
+.upload-zone .main {
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.upload-zone .sub {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+.preview {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--brand-dark);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+}
+
+.btn + .btn {
+  margin-top: 10px;
+}
+
+.analysis {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.analysis img {
+  width: 72px;
+  height: 72px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.analysis .breed {
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.analysis .coat {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.analysis .comment {
+  font-size: 12px;
+  margin-top: 4px;
+  background: var(--brand-soft);
+  border-radius: 8px;
+  padding: 6px 8px;
+}
+
+.style-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.style-card {
+  position: relative;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  padding: 14px 12px;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.style-card:hover {
+  border-color: var(--brand);
+}
+
+.style-card.selected {
+  border-color: var(--brand);
+  background: var(--brand-soft);
+}
+
+.style-card .emoji {
+  font-size: 26px;
+}
+
+.style-card .name {
+  font-weight: 700;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.style-card .desc {
+  font-size: 11px;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+
+.style-card .badge {
+  position: absolute;
+  top: -8px;
+  right: 8px;
+  background: var(--good);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px 16px;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+  border: 4px solid var(--line);
+  border-top-color: var(--brand);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading .msg {
+  font-weight: 700;
+}
+
+.loading .sub {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.compare figure img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.compare figcaption {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+
+.notice {
+  font-size: 11px;
+  color: var(--ink-soft);
+  background: #f7f1ec;
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-top: 12px;
+}
+
+.demo-banner {
+  background: #fff4c9;
+  border: 1px solid #eddb8a;
+  color: #7a6314;
+  font-size: 12px;
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-top: 12px;
+  text-align: center;
+}
+
+.error-box {
+  background: #fdecec;
+  border: 1px solid #f5c1c1;
+  color: #a33;
+  font-size: 13px;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-top: 12px;
+}
+
+.epark-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 8px;
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 800;
+  margin-top: 4px;
+}
+
+.footer {
+  text-align: center;
+  font-size: 11px;
+  color: var(--ink-soft);
+  margin-top: 40px;
+}
+
+/* ---- 埋め込み(/embed)向け ---- */
+
+.sim-embed .steps {
+  margin-top: 12px;
+}
+
+/* ---- EPARK施設ページモック(/epark-mock) ---- */
+
+.ep-page {
+  min-height: 100vh;
+  background: #f6f3ef;
+}
+
+.ep-header {
+  background: #ff7a1a;
+  color: #fff;
+}
+
+.ep-header-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ep-brand {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.ep-brand span {
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+.ep-mock-badge {
+  font-size: 10px;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
+.ep-body {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 16px 16px 64px;
+}
+
+.ep-salon-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.ep-photo-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+
+.ep-photo {
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, #ffe3c9, #ffd0a8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+}
+
+.ep-salon-head {
+  padding: 14px 16px 16px;
+}
+
+.ep-salon-head h1 {
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.ep-rating {
+  color: #f5a623;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.ep-rating span {
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.ep-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.ep-tags span {
+  font-size: 11px;
+  background: #fff1e5;
+  color: #c9631a;
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
+.ep-address {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 8px;
+}
+
+.ep-menu-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.ep-menu-table td {
+  padding: 10px 4px;
+  border-bottom: 1px solid var(--line);
+}
+
+.ep-price {
+  text-align: right;
+  font-weight: 700;
+  color: #c9631a;
+  white-space: nowrap;
+}
+
+.ep-sim-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.ep-sim-head {
+  padding: 16px 16px 6px;
+}
+
+.ep-sim-head p {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+.ep-iframe {
+  width: 100%;
+  height: 720px;
+  border: none;
+  display: block;
+  background: var(--bg);
+}
+
+.ep-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+.ep-label select,
+.ep-label input {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.ep-attach {
+  border: 2px solid var(--good);
+  background: #f0faf5;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.ep-attach-head {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--good);
+}
+
+.ep-attach-body {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.ep-attach-body img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.ep-arrow {
+  font-size: 18px;
+  color: var(--ink-soft);
+}
+
+.ep-attach-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+
+.ep-attach-info strong {
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.ep-remove {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: #c66;
+  font-size: 11px;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 4px;
+}
+
+.ep-summary {
+  margin-top: 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.ep-summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--line);
+}
+
+.ep-summary-row:last-child {
+  border-bottom: none;
+}
+
+.ep-summary-row span {
+  color: var(--ink-soft);
+  flex-shrink: 0;
+}
